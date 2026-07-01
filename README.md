@@ -1,91 +1,31 @@
-# Review Folder Overview
+# Algorithms
 
-This file summarizes the folders inside the Review workspace and the algorithm functions implemented in each C source file.
+Contains Algorithms Functions discussed in Algorithms & Complexity
 
-## Bubble Sort
+Note:
 
-- `ADTArrayBubble.c`
-  - `init`
-  - `insertFirst`
-  - `bubbleSort`
-  - `printSort`
-  - `main`
-- `ADTLLBubble.c`
-  - `init`
-  - `insertFirst`
-  - `bubbleSortList`
-  - `displayList`
-  - `main`
+- Some algorithms doesn't have linked list application or uses a doubly linked list
+- These are based on my understanding. Feel free to change any part of the code.
 
-## Comb Sort
+## Elementary Sorting (Bubble, Insertion, Selection)
 
-- `ADTArrayComb.c`
-  - `init`
-  - `insertFirst`
-  - `combSort`
-  - `display`
-  - `main`
+---
 
-## Gnome Sort
+* Insertion Sort
+* Bubble Sort
+* Selection Sort
 
-- `ADTArrayGnome.c`
-  - `init`
-  - `insertFirst`
-  - `gnomeSort`
-  - `display`
-  - `main`
-- `ADTLLGnome.c`
-  - `init`
-  - `insertFirst`
-  - `gnomeSortList`
-  - `display`
-  - `main`
+## Gap Based & Incrementing Sorting (Shell, Comb, Gnome)
 
-## Insertion Sort
+---
 
-- `ADTArrInsertion.c`
-  - `init`
-  - `insertFirst`
-  - `insertionSort`
-  - `display`
-  - `main`
-- `ADTLLInsertion.c`
-  - `init`
-  - `insertFirst`
-  - `insertionSortList`
-  - `displayList`
-  - `main`
+- Shell Sort
+- Comb Sort
+- Gnome Sort
 
-## Merge Sort
+## Divide & Conquer (Merge, Quick)
 
-- `ADTArrayMerge.c`
-  - `init`
-  - `insertFirst`
-  - `merge`
-  - `mergeSort`
-  - `display`
-  - `main`
+---
 
-## Selection Sort
-
-- `ADTArraySelection.c`
-  - `init`
-  - `insertFirst`
-  - `selectionSort`
-  - `display`
-  - `main`
-- `ADTLLSelection.c`
-  - `init`
-  - `insertFirst`
-  - `selectionSortList`
-  - `displayList`
-  - `main`
-
-## Shell Sort
-
-- `ADTArrayShell.c`
-  - `init`
-  - `insertFirst`
-  - `shellSort`
-  - `display`
-  - `main`
+- Merge Sort
+- Quick Sort
