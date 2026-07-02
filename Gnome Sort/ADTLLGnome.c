@@ -25,24 +25,24 @@ void insertFirst(ADTLL *LL, int val){
 	}
 }
 
-void gnomeSortList(ADTLL *LL){
-	ADTLL pos;
-	int temp;
-	if(*LL != NULL){
-		pos = (*LL)->next;
-		
-		for(;pos != NULL;){
-			if(pos->prev == NULL || pos->data >= pos->prev->data){
-				pos = pos->next;
-			} else {
-				temp = pos->data;
-				pos->data = pos->prev->data;
-				pos->prev->data = temp;
-				pos = pos->prev;
-			}
-		}
-	}
-}
+//void gnomeSortList(ADTLL *LL){
+//	ADTLL pos;
+//	int temp;
+//	if(*LL != NULL){
+//		pos = (*LL)->next;
+//
+//		for(;pos != NULL;){
+//			if(pos->prev == NULL || pos->data >= pos->prev->data){
+//				pos = pos->next;
+//			} else {
+//				temp = pos->data;
+//				pos->data = pos->prev->data;
+//				pos->prev->data = temp;
+//				pos = pos->prev;
+//			}
+//		}
+//	}
+//}
 
 void display(ADTLL LL){
 	for(;LL != NULL; LL = LL->next){

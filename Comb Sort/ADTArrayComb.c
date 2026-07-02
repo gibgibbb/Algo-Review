@@ -44,6 +44,29 @@ void combSort(ArrADT *A){
 	}
 }
 
+void combSort(ArrADT *A){
+	int gap = A->count + 1;
+	int x, temp, swapped = 1;
+	while(gap != 1 || swapped != 0){
+		gap = (gap * 10) / 13;
+		
+		if(gap < 1){
+			gap = 1;
+		}
+		
+		swapped = 0;
+		
+		for(x = 0; x <= A->count - gap; x++){
+			if(A->data[x] > A->data[x + gap]){
+				temp = A->data[x];
+				A->data[x] = A->data[x + gap];
+				A->data[x + gap] = temp;
+				swapped = 1;
+			}
+		}
+	}
+}
+
 void display(ArrADT A){
 	int x;
 	for(x = 0; x <= A.count; x++){

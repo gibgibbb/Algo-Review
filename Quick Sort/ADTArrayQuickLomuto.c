@@ -21,17 +21,36 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
-void insertionSort(ArrADT *A){
-	int x, y, temp;
-	for(x = 1; x <= A->count; x++){
-		temp = A->data[x];
-		for(y = x - 1; y >= 0 && A->data[y] > temp; y--){
-			A->data[y + 1] = A->data[y];
+int lomutoPartition(ArrADT *A, int low, int high){
+	int pivot = A->data[high];
+	int x = low - 1;
+	int y;
+	int temp;
+	
+	for(y = low; y < high; y++){
+		if(A->data[y] <= pivot){
+			x++;
+			temp = A->data[x];
+			A->data[x] = A->data[y];
+			A->data[y] = temp;
 		}
-		A->data[y + 1] = temp;
 	}
+	
+	temp = A->data[x + 1];
+	A->data[x + 1] = A->data[high];
+	A->data[high] = temp;
+	
+	return x + 1;
 }
 
+void quickSortLomuto(ArrADT *A, int low, int high){
+	if(low < high){
+		int p = lomutoPartition(A, low, high);
+
+		quickSortLomuto(A, low, p - 1);
+		quickSortLomuto(A, p + 1, high);
+	}
+}
 
 void display(ArrADT A){
 	int x;
@@ -41,19 +60,19 @@ void display(ArrADT A){
 }
 
 int main(){
-	
+
 	ArrADT A;
-	
+
 	init(&A);
-	
+
 	insertFirst(&A, 5);
 	insertFirst(&A, 2);
 	insertFirst(&A, 100);
 	insertFirst(&A, 30);
 	insertFirst(&A, 19);
-	
-	insertionSort(&A);
+
+	quickSortLomuto(&A, 0, A.count);
 	display(A);
-	
+
 	return 0;
 }

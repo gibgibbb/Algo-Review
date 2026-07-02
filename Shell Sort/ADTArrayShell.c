@@ -39,6 +39,19 @@ void shellSort(ArrADT *A){
 	}
 }
 
+void shellSort(ArrADT *A){
+	int x, y, temp, gap;
+	for(gap = A->count/2; gap != 0; gap /= 2){
+		for(x = gap; x <= A->count; x++){
+			temp = A->data[x];
+			for(y = x - 1; y >= 0 && A->data[y] > temp; y--){
+				A->data[y + 1] = A->data[y];
+			}
+			A->data[y + 1] = temp;
+		}
+	}
+}
+
 void display(ArrADT A){
 	int x;
 	for(x = 0; x <= A.count; x++){
