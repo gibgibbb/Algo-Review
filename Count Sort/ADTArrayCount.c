@@ -21,37 +21,39 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
-//void selectionSort(ArrADT *A){
-//	int x, y, min, temp;
-//	for(x = 0; x < A->count; x++){
-//		min = x;
-//		for(y = x + 1; y <= A->count; y++){
-//			if(A->data[y] < A->data[min]){
-//				min = y;
-//			}
-//		}
-//		if(min != x){
-//			temp = A->data[x];
-//			A->data[x] = A->data[min];
-//			A->data[min] = temp;
-//		}
-//	}
-//}
-
-void selectionSort(ArrADT *A){
-	int x, y, min, temp;
+void countingSort(ArrADT *A){
+	
+	int x;
+	int max = A->data[0];
+	
 	for(x = 0; x <= A->count; x++){
-		min = x;
-		for(y = x + 1; y <= A->count; y++){
-			if(A->data[y] < A->data[min]){
-				min = y;
-			}
+		if(max < A->data[x]){
+			max = A->data[x];
 		}
-		if(min != x){
-			temp = A->data[x];
-			A->data[x] = A->data[min];
-			A->data[min] = temp;
-		}
+	}
+	
+	int count[max + 1];
+	int output[A->count + 1];
+	
+	for(x = 0; x <= max; x++){
+		count[x] = 0;
+	}
+	
+	for(x = 0; x <= A->count; x++){
+		count[A->data[x]]++;
+	}
+	
+	for(x = 0; x <= max; x++){
+		count[x] += count[x - 1];
+	}
+	
+	for(x = A->count; x >= 0; x--){
+		output[count[A->data[x]] - 1] = A->data[x];
+		count[A->data[x]]--;
+	}
+	
+	for(x = 0; x <= A->count; x++){
+		A->data[x] = output[x];
 	}
 }
 
@@ -74,7 +76,7 @@ int main(){
 	insertFirst(&A, 30);
 	insertFirst(&A, 19);
 
-	selectionSort(&A);
+	countingSort(&A);
 	display(A);
 
 	return 0;

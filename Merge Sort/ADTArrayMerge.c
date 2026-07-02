@@ -26,7 +26,7 @@ void merge(ArrADT *A, int left, int mid, int right){
 	int x = left;
 	int y = mid + 1;
 	int z = left;
-
+	
 	while(x <= mid && y <= right){
 		if(A->data[x] < A->data[y]){
 			temp[z++] = A->data[x++];
@@ -34,19 +34,28 @@ void merge(ArrADT *A, int left, int mid, int right){
 			temp[z++] = A->data[y++];
 		}
 	}
-
-	while(x <= mid) {
+	
+	while(x <= mid){
 		temp[z++] = A->data[x++];
 	}
-
-	while(y <= right) {
+	
+	while(y <= right){
 		temp[z++] = A->data[y++];
 	}
-
+	
 	for(x = left; x <= right; x++){
 		A->data[x] = temp[x];
 	}
 }
+
+//void mergeSort(ArrADT *A, int left, int right){
+//	if(left < right){
+//		int mid = (left + right) / 2;
+//		mergeSort(A, left, mid);
+//		mergeSort(A, mid + 1, right);
+//		merge(A, left, mid, right);
+//	}
+//}
 
 void mergeSort(ArrADT *A, int left, int right){
 	if(left < right){

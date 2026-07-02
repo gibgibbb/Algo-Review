@@ -19,21 +19,37 @@ void insertFirst(ADTLL *LL, int val){
 	}
 }
 
+//void insertionSortList(ADTLL *LL){
+//	ADTLL curr, trav;
+//	int temp;
+//	if(*LL != NULL){
+//		for(curr = (*LL)->next; curr != NULL; curr = curr->next){
+//			temp = curr->data;
+//			for(trav = *LL; trav != NULL; trav = trav->next){
+//				if(trav->data > temp){
+//					int holder = trav->data;
+//					trav->data = temp;
+//					temp = holder;
+//				}
+//			}
+//			curr->data = temp;
+//		}
+//	}
+//}
+
 void insertionSortList(ADTLL *LL){
-	ADTLL curr, trav;
+	ADTLL trav, curr;
 	int temp;
-	if(*LL != NULL){
-		for(curr = (*LL)->next; curr != NULL; curr = curr->next){
-			temp = curr->data;
-			for(trav = *LL; trav != NULL; trav = trav->next){
-				if(trav->data > temp){
-					int holder = trav->data;
-					trav->data = temp;
-					temp = holder;
-				}
+	for(curr = (*LL)->next; curr != NULL; curr = curr->next){
+		temp = curr->data;
+		for(trav = *LL; trav != NULL; trav = trav->next){
+			if(trav->data > temp){
+				int holder = trav->data;
+				trav->data = temp;
+				temp = holder;
 			}
-			curr->data = temp;
 		}
+		curr->data = temp;
 	}
 }
 

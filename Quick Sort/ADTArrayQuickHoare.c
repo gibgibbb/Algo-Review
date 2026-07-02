@@ -21,18 +21,43 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
+//int hoarePartition(ArrADT *A, int low, int high){
+//	int pivot = A->data[low];
+//	int x = low - 1;
+//	int y = high + 1;
+//	int temp;
+//	
+//	while(1){
+//		do{
+//			x++;
+//		} while(A->data[x] < pivot);
+//
+//		do{
+//			y--;
+//		} while (A->data[y] > pivot);
+//		
+//		if(x >= y){
+//			return y;
+//		}
+//		
+//		temp = A->data[x];
+//		A->data[x] = A->data[y];
+//		A->data[y] = temp;
+//	}
+//}
+
 int hoarePartition(ArrADT *A, int low, int high){
 	int pivot = A->data[low];
 	int x = low - 1;
 	int y = high + 1;
 	int temp;
 	
-	while(1){
-		do{
+	while(1) {
+		do {
 			x++;
-		} while(A->data[x] < pivot);
-
-		do{
+		} while (A->data[x] < pivot);
+		
+		do {
 			y--;
 		} while (A->data[y] > pivot);
 		

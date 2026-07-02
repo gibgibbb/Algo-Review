@@ -21,26 +21,26 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
-void shellSort(ArrADT *A){
-	int x, y, gap, temp;
-	for(gap = A->count/2; gap != 0; gap /= 2){
-		for(x = gap; x <= A->count; x++){
-			temp = A->data[x];
-			for(y = x - 1; y >= 0 && A->data[y] > temp; y--){
-				A->data[y + 1] = A->data[y];
-			}
-			A->data[y + 1] = temp;
+//void shellSort(ArrADT *A){
+//	int x, y, gap, temp;
+//	for(gap = A->count/2; gap != 0; gap /= 2){
+//		for(x = gap; x <= A->count; x++){
 //			temp = A->data[x];
-//			for(y = x; y >= gap && A->data[y - gap] > temp; y -= gap){
-//				A->data[y] = A->data[y - gap];
+//			for(y = x - 1; y >= 0 && A->data[y] > temp; y--){
+//				A->data[y + 1] = A->data[y];
 //			}
-//			A->data[y] = temp; //This also works//
-		}
-	}
-}
+//			A->data[y + 1] = temp;
+////			temp = A->data[x];
+////			for(y = x; y >= gap && A->data[y - gap] > temp; y -= gap){
+////				A->data[y] = A->data[y - gap];
+////			}
+////			A->data[y] = temp; //This also works//
+//		}
+//	}
+//}
 
 void shellSort(ArrADT *A){
-	int x, y, temp, gap;
+	int x, y, gap, temp;
 	for(gap = A->count/2; gap != 0; gap /= 2){
 		for(x = gap; x <= A->count; x++){
 			temp = A->data[x];

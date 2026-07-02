@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 #define MAX 10
 
 typedef struct{
@@ -21,25 +22,30 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
-//void insertionSort(ArrADT *A){
-//	int x, y, temp;
-//	for(x = 1; x <= A->count; x++){
-//		temp = A->data[x];
-//		for(y = x - 1; y >= 0 && A->data[y] > temp; y--){
-//			A->data[y + 1] = A->data[y];
-//		}
-//		A->data[y + 1] = temp;
-//	}
-//}
-
-void insertionSort(ArrADT *A){
-	int x, y, temp;
+int findMin(ArrADT *A){
+	int x;
+	int min = 0;
 	for(x = 1; x <= A->count; x++){
-		temp = A->data[x];
-		for(y = x - 1; y >= 0 && A->data[y] > temp; y--){
-			A->data[y + 1] = A->data[y];
+		if(A->data[x] < A->data[min]){
+			min = x;
 		}
-		A->data[y + 1] = temp;
+	}
+	return min;
+}
+
+void tournamentSortSimple(ArrADT *A){
+	int output[MAX];
+	int x;
+	int minNdx;
+
+	for(x = 0; x <= A->count; x++){
+		minNdx = findMin(A);
+		output[x] = A->data[minNdx];
+		A->data[minNdx] = INT_MAX;
+	}
+
+	for(x = 0; x <= A->count; x++){
+		A->data[x] = output[x];
 	}
 }
 
@@ -52,19 +58,19 @@ void display(ArrADT A){
 }
 
 int main(){
-	
+
 	ArrADT A;
-	
+
 	init(&A);
-	
+
 	insertFirst(&A, 5);
 	insertFirst(&A, 2);
 	insertFirst(&A, 100);
 	insertFirst(&A, 30);
 	insertFirst(&A, 19);
-	
-	insertionSort(&A);
+
+	tournamentSortSimple(&A);
 	display(A);
-	
+
 	return 0;
 }

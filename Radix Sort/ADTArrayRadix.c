@@ -21,36 +21,37 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
-//void selectionSort(ArrADT *A){
-//	int x, y, min, temp;
-//	for(x = 0; x < A->count; x++){
-//		min = x;
-//		for(y = x + 1; y <= A->count; y++){
-//			if(A->data[y] < A->data[min]){
-//				min = y;
-//			}
-//		}
-//		if(min != x){
-//			temp = A->data[x];
-//			A->data[x] = A->data[min];
-//			A->data[min] = temp;
-//		}
-//	}
-//}
+void radixSort(ArrADT *A){
+	int max = A->data[0];
+	int x, exp;
 
-void selectionSort(ArrADT *A){
-	int x, y, min, temp;
 	for(x = 0; x <= A->count; x++){
-		min = x;
-		for(y = x + 1; y <= A->count; y++){
-			if(A->data[y] < A->data[min]){
-				min = y;
-			}
+		if(max < A->data[x]){
+			max = A->data[x];
 		}
-		if(min != x){
-			temp = A->data[x];
-			A->data[x] = A->data[min];
-			A->data[min] = temp;
+	}
+	
+	for(exp = 1; max/exp > 0; exp *= 10){
+		int count[10] = {0};
+		int output[A->count + 1];
+		
+		for(x = 0; x <= A->count; x++){
+			int digit = (A->data[x]/exp) % 10;
+			count[digit]++;
+		}
+		
+		for(x = 0; x < 10; x++){
+			count[x] += count[x - 1];
+		}
+		
+		for(x = A->count; x >= 0; x--){
+			int digit = (A->data[x]/exp) % 10;
+			output[count[digit] - 1] = A->data[x];
+			count[digit]--;
+		}
+		
+		for(x = 0; x <= A->count; x++){
+			A->data[x] = output[x];
 		}
 	}
 }
@@ -74,7 +75,7 @@ int main(){
 	insertFirst(&A, 30);
 	insertFirst(&A, 19);
 
-	selectionSort(&A);
+	radixSort(&A);
 	display(A);
 
 	return 0;

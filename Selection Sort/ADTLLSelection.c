@@ -19,23 +19,41 @@ void insertFirst(ADTLL *LL, int val){
 	}
 }
 
+//void selectionSortList(ADTLL *LL){
+//	ADTLL curr, trav, min;
+//	int temp;
+//	
+//	if(*LL != NULL){
+//		for(curr = *LL; curr != NULL; curr = curr->next){
+//			min = curr;
+//			for(trav = curr->next; trav != NULL; trav = trav->next){
+//				if(trav->data < min->data){
+//					min = trav;
+//				}
+//			}
+//			if(min != curr){
+//				temp = curr->data;
+//				curr->data = min->data;
+//				min->data = temp;
+//			}
+//		}
+//	}
+//}
+
 void selectionSortList(ADTLL *LL){
 	ADTLL curr, trav, min;
 	int temp;
-	
-	if(*LL != NULL){
-		for(curr = *LL; curr != NULL; curr = curr->next){
-			min = curr;
-			for(trav = curr->next; trav != NULL; trav = trav->next){
-				if(trav->data < min->data){
-					min = trav;
-				}
+	for(curr = *LL; curr != NULL; curr = curr->next){
+		min = curr;
+		for(trav = curr->next; trav != NULL; trav = trav->next){
+			if(trav->data < min->data){
+				min = trav;
 			}
-			if(min != curr){
-				temp = curr->data;
-				curr->data = min->data;
-				min->data = temp;
-			}
+		}
+		if(min != curr){
+			temp = curr->data;
+			curr->data = min->data;
+			min->data = temp;
 		}
 	}
 }
