@@ -21,6 +21,20 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
+//void gnomeSort(ArrADT *A){
+//	int pos, temp;
+//	for(pos = 0; pos <= A->count;){
+//		if(pos == 0 || A->data[pos] >= A->data[pos - 1]){
+//			pos++;
+//		} else {
+//			temp = A->data[pos];
+//			A->data[pos] = A->data[pos - 1];
+//			A->data[pos - 1] = temp;
+//			pos--;
+//		}
+//	}
+//}
+
 void gnomeSort(ArrADT *A){
 	int pos, temp;
 	for(pos = 0; pos <= A->count;){

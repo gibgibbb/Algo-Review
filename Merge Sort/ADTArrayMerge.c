@@ -21,7 +21,34 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
-void merge(ArrADT *A, int left, int mid, int right){
+//void merge(ArrADT *A, int left, int mid, int right){
+//	int temp[MAX];
+//	int x = left;
+//	int y = mid + 1;
+//	int z = left;
+//	
+//	while(x <= mid && y <= right){
+//		if(A->data[x] < A->data[y]){
+//			temp[z++] = A->data[x++];
+//		} else {
+//			temp[z++] = A->data[y++];
+//		}
+//	}
+//	
+//	while(x <= mid){
+//		temp[z++] = A->data[x++];
+//	}
+//	
+//	while(y <= right){
+//		temp[z++] = A->data[y++];
+//	}
+//	
+//	for(x = left; x <= right; x++){
+//		A->data[x] = temp[x];
+//	}
+//}
+
+void merge(ArrADT* A, int left, int mid, int right){
 	int temp[MAX];
 	int x = left;
 	int y = mid + 1;

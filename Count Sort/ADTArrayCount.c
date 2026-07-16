@@ -21,8 +21,43 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
+//void countingSort(ArrADT *A){
+//	
+//	int x;
+//	int max = A->data[0];
+//	
+//	for(x = 0; x <= A->count; x++){
+//		if(max < A->data[x]){
+//			max = A->data[x];
+//		}
+//	}
+//	
+//	int count[max + 1];
+//	int output[A->count + 1];
+//	
+//	for(x = 0; x <= max; x++){
+//		count[x] = 0;
+//	}
+//	
+//	for(x = 0; x <= A->count; x++){
+//		count[A->data[x]]++;
+//	}
+//	
+//	for(x = 0; x <= max; x++){
+//		count[x] += count[x - 1];
+//	}
+//	
+//	for(x = A->count; x >= 0; x--){
+//		output[count[A->data[x]] - 1] = A->data[x];
+//		count[A->data[x]]--;
+//	}
+//	
+//	for(x = 0; x <= A->count; x++){
+//		A->data[x] = output[x];
+//	}
+//}
+
 void countingSort(ArrADT *A){
-	
 	int x;
 	int max = A->data[0];
 	

@@ -23,7 +23,6 @@ void insertFirst(ArrADT *A, int val){
 
 void bucketSort(ArrADT *A){
 	
-	
 	int bucket[10][A->count + 1];
 	int bucketCount[10] = {0};
 	int x, y, z;

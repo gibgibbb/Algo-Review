@@ -52,8 +52,8 @@ int hoarePartition(ArrADT *A, int low, int high){
 	int y = high + 1;
 	int temp;
 	
-	while(1) {
-		do {
+	while(1){
+		do{
 			x++;
 		} while (A->data[x] < pivot);
 		
@@ -70,6 +70,15 @@ int hoarePartition(ArrADT *A, int low, int high){
 		A->data[y] = temp;
 	}
 }
+
+//void quickSortHoare(ArrADT *A, int low, int high){
+//	if(low < high){
+//		int p = hoarePartition(A, low, high);
+//		
+//		quickSortHoare(A, low, p);
+//		quickSortHoare(A, p + 1, high);
+//	}
+//}
 
 void quickSortHoare(ArrADT *A, int low, int high){
 	if(low < high){

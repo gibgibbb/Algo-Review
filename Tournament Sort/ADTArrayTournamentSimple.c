@@ -25,7 +25,7 @@ void insertFirst(ArrADT *A, int val){
 int findMin(ArrADT *A){
 	int x;
 	int min = 0;
-	for(x = 1; x <= A->count; x++){
+	for(x = 0; x <= A->count; x++){
 		if(A->data[x] < A->data[min]){
 			min = x;
 		}
@@ -33,17 +33,38 @@ int findMin(ArrADT *A){
 	return min;
 }
 
+//void tournamentSortSimple(ArrADT *A){
+//	int output[MAX];
+//	int x;
+//	int minNdx;
+//
+//	for(x = 0; x <= A->count; x++){
+//		minNdx = findMin(A);
+//		output[x] = A->data[minNdx];
+//		A->data[minNdx] = INT_MAX;
+//	}
+//
+//	for(x = 0; x <= A->count; x++){
+//		A->data[x] = output[x];
+//	}
+//}
+
 void tournamentSortSimple(ArrADT *A){
 	int output[MAX];
-	int x;
+	int x, y;
 	int minNdx;
-
+	
 	for(x = 0; x <= A->count; x++){
-		minNdx = findMin(A);
+		minNdx = 0;
+		for(y = 0; y <= A->count; y++){
+			if(A->data[y] < A->data[minNdx]){
+				minNdx = y;
+			}
+		}
 		output[x] = A->data[minNdx];
 		A->data[minNdx] = INT_MAX;
 	}
-
+	
 	for(x = 0; x <= A->count; x++){
 		A->data[x] = output[x];
 	}

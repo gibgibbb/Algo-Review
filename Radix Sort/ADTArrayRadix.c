@@ -21,6 +21,41 @@ void insertFirst(ArrADT *A, int val){
 	}
 }
 
+//void radixSort(ArrADT *A){
+//	int max = A->data[0];
+//	int x, exp;
+//
+//	for(x = 0; x <= A->count; x++){
+//		if(max < A->data[x]){
+//			max = A->data[x];
+//		}
+//	}
+//	
+//	for(exp = 1; max/exp > 0; exp *= 10){
+//		int count[10] = {0};
+//		int output[A->count + 1];
+//		
+//		for(x = 0; x <= A->count; x++){
+//			int digit = (A->data[x]/exp) % 10;
+//			count[digit]++;
+//		}
+//		
+//		for(x = 0; x < 10; x++){
+//			count[x] += count[x - 1];
+//		}
+//		
+//		for(x = A->count; x >= 0; x--){
+//			int digit = (A->data[x]/exp) % 10;
+//			output[count[digit] - 1] = A->data[x];
+//			count[digit]--;
+//		}
+//		
+//		for(x = 0; x <= A->count; x++){
+//			A->data[x] = output[x];
+//		}
+//	}
+//}
+
 void radixSort(ArrADT *A){
 	int max = A->data[0];
 	int x, exp;
@@ -30,8 +65,8 @@ void radixSort(ArrADT *A){
 			max = A->data[x];
 		}
 	}
-	
-	for(exp = 1; max/exp > 0; exp *= 10){
+
+	for(exp = 1; max/exp != 0; exp *= 10){
 		int count[10] = {0};
 		int output[A->count + 1];
 		
